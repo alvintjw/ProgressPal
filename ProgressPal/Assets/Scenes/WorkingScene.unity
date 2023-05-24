@@ -728,7 +728,7 @@ MonoBehaviour:
   uiFill: {fileID: 1273954587}
   uiText: {fileID: 281363649}
   durationInput: {fileID: 0}
-  DurationInMinutes: 1500
+  DurationInMinutes: 1
 --- !u!1 &1376374631
 GameObject:
   m_ObjectHideFlags: 0
