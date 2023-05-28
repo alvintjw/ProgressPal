@@ -86,5 +86,8 @@ public class Timer : MonoBehaviour, IPointerClickHandler
         uiText.text = "Time's up";
         uiFill.fillAmount = 0f;
         uiText.color = Color.red;
+        startButton.gameObject.SetActive(true);  // Destroy the start button GameObject
+        durationInput.gameObject.SetActive(true);  // Destroy the duration input text GameObject
+        inputPromptText.gameObject.SetActive(true);  // Destroy the input prompt text GameObject
     }
 }
