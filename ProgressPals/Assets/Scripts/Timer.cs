@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class Timer : MonoBehaviour
+public class Timer : MonoBehaviour, IPointerClickHandler
 {
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        Pause = !Pause;
+    } 
     [SerializeField] private Image uiFill;
     [SerializeField] private TextMeshProUGUI uiText;
     [SerializeField] private TMP_InputField durationInput;
     [SerializeField] private TextMeshProUGUI inputPromptText;  // Add a reference to the input prompt text
     public Button startButton;
+    private bool Pause;
 
     private int remainingDurationInSeconds;  // Represents the remaining duration in seconds
 
@@ -60,13 +66,16 @@ public class Timer : MonoBehaviour
         float initialDuration = remainingDurationInSeconds; 
         while (remainingDurationInSeconds > 0)
         {
-            int minutes = remainingDurationInSeconds / 60;  // Get the minutes
-            int seconds = remainingDurationInSeconds % 60;  // Get the seconds
-            uiText.text = $"{minutes:00} : {seconds:00}";
-        
-            uiFill.fillAmount = Mathf.InverseLerp(0, initialDuration, remainingDurationInSeconds);
-            remainingDurationInSeconds--;
-            yield return new WaitForSeconds(1f);
+            if (!Pause)
+            {
+                int minutes = remainingDurationInSeconds / 60;  // Get the minutes
+                int seconds = remainingDurationInSeconds % 60;  // Get the seconds
+                uiText.text = $"{minutes:00} : {seconds:00}";
+                uiFill.fillAmount = Mathf.InverseLerp(0, initialDuration, remainingDurationInSeconds);
+                remainingDurationInSeconds--;
+                yield return new WaitForSeconds(1f);
+            }
+            yield return null;
         }
         OnEnd();
 
