@@ -10,7 +10,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI uiText;
     [SerializeField] private TMP_InputField durationInput;
     [SerializeField] private TextMeshProUGUI inputPromptText;  // Add a reference to the input prompt text
-    private Button startButton;
+    public Button startButton;
 
     private int remainingDurationInSeconds;  // Represents the remaining duration in seconds
 
@@ -18,7 +18,6 @@ public class Timer : MonoBehaviour
     void Start()
     {
   
-        startButton = FindObjectOfType<Button>();
         if (startButton != null)
         {
             startButton.onClick.AddListener(StartTimer);
