@@ -121,11 +121,14 @@ public class Timer : MonoBehaviour, IPointerClickHandler
     {
         isTimerRunning = false;
         startButton.GetComponentInChildren<TextMeshProUGUI>().text = "Start Timer";
-        durationSlider.interactable = true;
 
         uiText.text = "Time's up";
         uiFill.fillAmount = 0f;
         uiText.color = Color.red;
+        durationSlider.gameObject.SetActive(true);
+        ResetUI();
+        StopAllCoroutines();
+
     }
 
     private void UpdateSliderText(float value)
