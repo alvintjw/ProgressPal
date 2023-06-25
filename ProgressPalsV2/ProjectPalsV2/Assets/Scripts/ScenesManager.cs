@@ -14,4 +14,9 @@ public class ScenesManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void TaskPageButton()
+    {
+        SceneManager.LoadScene(2);
+    }
 }
