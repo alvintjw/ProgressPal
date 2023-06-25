@@ -15,22 +15,6 @@ public class TimerManager : MonoBehaviour, IPointerClickHandler
     private bool isPaused;
     private int remainingDurationInSeconds;
 
-    private static TimerManager instance;
-
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-            return;
-        }
-    }
 
     private void Start()
     {
@@ -93,11 +77,11 @@ public class TimerManager : MonoBehaviour, IPointerClickHandler
         isPaused = !isPaused;
         if (isPaused)
         {
-            startButton.GetComponentInChildren<TextMeshProUGUI>().text = "Resume Timer";
+            startButton.GetComponentInChildren<TextMeshProUGUI>().text = "Stop Timer";
         }
         else
         {
-            startButton.GetComponentInChildren<TextMeshProUGUI>().text = "Pause Timer";
+            startButton.GetComponentInChildren<TextMeshProUGUI>().text = "Stop Timer";
         }
     }
 

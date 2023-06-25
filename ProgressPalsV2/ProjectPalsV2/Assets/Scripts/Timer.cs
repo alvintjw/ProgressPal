@@ -126,7 +126,7 @@ public class Timer : MonoBehaviour, IPointerClickHandler
         uiFill.fillAmount = 0f;
         uiText.color = Color.red;
         durationSlider.gameObject.SetActive(true);
-        ResetUI();
+        
         StopAllCoroutines();
 
     }
