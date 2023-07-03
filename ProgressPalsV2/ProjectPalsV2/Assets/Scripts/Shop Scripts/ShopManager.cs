@@ -13,6 +13,8 @@ public class ShopManager : MonoBehaviour
     public GameObject[] shopPanelsGO;
     public ShopTemplate[] shopPanels;
     public Button[] myPurchaseBtns;
+    public DragDrop[] dragDropItems;
+    public Image[] items;
 
     // Start is called before the first frame update
     
@@ -54,6 +56,7 @@ public class ShopManager : MonoBehaviour
         if( coins >= shopItemsSO[btnNo].baseCost)
         {
             coins = coins - shopItemsSO[btnNo].baseCost;
+            dragDropItems[btnNo].unlocked = true;
             coinUI.text = "Coins: " + coins.ToString();
             CheckPurchaseable();
             //Unlock Item.
@@ -68,8 +71,10 @@ public class ShopManager : MonoBehaviour
             shopPanels[i].titleTxt.text = shopItemsSO[i].title;
             shopPanels[i].descriptionTxt.text = shopItemsSO[i].descrption;
             shopPanels[i].costTxt.text = "Coins: " + shopItemsSO[i].baseCost.ToString();
+            
         }
+
+
+
     }
-
-
 }

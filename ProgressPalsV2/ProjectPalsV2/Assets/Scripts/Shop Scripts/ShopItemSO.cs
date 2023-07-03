@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
  [CreateAssetMenu(fileName = "ShopMenu", menuName = "Scriptable Objects/New Shop Item", order = 1)]
 public class ShopItemSO : ScriptableObject
@@ -8,4 +9,6 @@ public class ShopItemSO : ScriptableObject
     public string title;
     public string descrption;
     public int baseCost;
+    public bool unlocked;
+    public GameObject item;
 }

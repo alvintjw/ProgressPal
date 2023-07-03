@@ -15,3 +15,5 @@ MonoBehaviour:
   title: Cat
   descrption: A cute Pink cat
   baseCost: 2
+  unlocked: 1
+  item: {fileID: 0}

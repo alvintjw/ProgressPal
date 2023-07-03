@@ -5,10 +5,11 @@ using UnityEngine.EventSystems;
 
 public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    [SerializeField] private Canvas canvas;
+    [SerializeField] public Canvas canvas;
 
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
+    public bool unlocked = true;
     
     private void Awake()
     {
@@ -19,14 +20,17 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("OnBeginDrag");
-     
         canvasGroup.blocksRaycasts = false;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("OnDrag");
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        Debug.Log(unlocked);
+        if (unlocked) 
+        {
+            rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        }
+
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -39,5 +43,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("OnPointerDown");
+    }
+
+    public bool IsUnlocked
+    {
+        get { return unlocked; }
     }
 }
