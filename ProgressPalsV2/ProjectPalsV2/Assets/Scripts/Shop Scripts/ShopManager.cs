@@ -31,6 +31,7 @@ public class ShopManager : MonoBehaviour
     public void AddCoins() //simple script to add coins
     {
         coins++;
+        Debug.Log("" + coins);
         coinUI.text = "Coins: " + coins.ToString();
         CheckPurchaseable();
     }
@@ -53,6 +54,7 @@ public class ShopManager : MonoBehaviour
     
     public void PurchaseItem(int btnNo) 
     {
+        Debug.Log("" + coins);
         if( coins >= shopItemsSO[btnNo].baseCost)
         {
             coins = coins - shopItemsSO[btnNo].baseCost;
@@ -73,8 +75,13 @@ public class ShopManager : MonoBehaviour
             shopPanels[i].costTxt.text = "Coins: " + shopItemsSO[i].baseCost.ToString();
             
         }
+    }
 
-
-
+    public void UpdateCoinUI() //simple script to add coins
+    {
+        coins += 10;
+        coinUI.text = "Coins: " + coins.ToString();
+        Debug.Log("" + coins);
+        CheckPurchaseable();
     }
 }

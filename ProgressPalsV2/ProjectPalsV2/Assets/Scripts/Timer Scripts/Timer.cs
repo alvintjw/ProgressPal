@@ -11,12 +11,15 @@ public class Timer : MonoBehaviour, IPointerClickHandler
     [SerializeField] private Slider durationSlider;
     public Button startButton;
 
+    private ShopManager shopManager;
+
     private bool isTimerRunning;
     private bool isPaused;
     private int remainingDurationInSeconds;
 
     private void Start()
     {
+        shopManager = FindObjectOfType<ShopManager>();
         if (startButton != null)
         {
             startButton.onClick.AddListener(ToggleTimer);
@@ -57,6 +60,7 @@ public class Timer : MonoBehaviour, IPointerClickHandler
         isTimerRunning = true;
         startButton.GetComponentInChildren<TextMeshProUGUI>().text = "Stop Timer";
         durationSlider.gameObject.SetActive(false);
+        Debug.Log("Start timer");
 
         Begin(inputDuration);
     }
@@ -94,11 +98,15 @@ public class Timer : MonoBehaviour, IPointerClickHandler
     private void Begin(int seconds)
     {
         remainingDurationInSeconds = seconds;
+        Debug.Log("Begin");
+   
+
         StartCoroutine(UpdateTimer());
     }
 
     private IEnumerator UpdateTimer()
     {
+        Debug.Log("Update timer");
         float initialDuration = remainingDurationInSeconds;
 
         while (remainingDurationInSeconds > 0)
@@ -113,6 +121,7 @@ public class Timer : MonoBehaviour, IPointerClickHandler
             }
             yield return new WaitForSeconds(1f);
         }
+        
 
         OnEnd();
     }
@@ -127,6 +136,13 @@ public class Timer : MonoBehaviour, IPointerClickHandler
         uiText.color = Color.red;
         durationSlider.gameObject.SetActive(true);
         
+        /*
+        if (shopManager != null)
+        {
+            shopManager.coins += 10; // Access the coins variable and increment it
+            shopManager.UpdateCoinUI(); // Call a function in the ShopManager script to update the UI
+        }
+        */
         StopAllCoroutines();
 
     }
