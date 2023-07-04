@@ -10,6 +10,8 @@ public class TimerManager : MonoBehaviour, IPointerClickHandler
     [SerializeField] private TextMeshProUGUI uiText;
     [SerializeField] private Slider durationSlider;
     public Button startButton;
+    
+    private ShopManager shopManager;
 
     private bool isTimerRunning;
     private bool isPaused;
@@ -18,6 +20,7 @@ public class TimerManager : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
+        shopManager = FindObjectOfType<ShopManager>();
         if (startButton != null)
         {
             startButton.onClick.AddListener(ToggleTimer);
@@ -128,6 +131,14 @@ public class TimerManager : MonoBehaviour, IPointerClickHandler
         uiText.color = Color.red;
         durationSlider.gameObject.SetActive(true);
         ResetUI();
+                
+        Debug.Log("OnEnd");
+        if (shopManager != null)
+        {
+            Debug.Log("Shop Manager");
+            shopManager.AddCoins(); // Call a function in the ShopManager script to update the UI
+        }
+        
         StopAllCoroutines();
     }
 

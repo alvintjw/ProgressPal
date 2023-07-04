@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3bd94538e8612440b25b27554955054, type: 3}
-  m_Name: SecondPlant
+  m_Name: SecondPlant 1
   m_EditorClassIdentifier: 
   title: Second Plant
   descrption: 'A freaking plant '

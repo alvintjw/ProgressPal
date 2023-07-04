@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Penguin
   m_EditorClassIdentifier: 
   title: Penguin
-  descrption: Blue Penguin
+  descrption: Derpy Penguin
   baseCost: 0
+  unlocked: 0
+  item: {fileID: 0}

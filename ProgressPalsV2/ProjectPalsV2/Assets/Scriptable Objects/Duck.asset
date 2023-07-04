@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Duck
   m_EditorClassIdentifier: 
   title: Duck
-  descrption: A cute yellow rubber duck
+  descrption: A yellow rubber duck
   baseCost: 1
+  unlocked: 0
+  item: {fileID: 0}
