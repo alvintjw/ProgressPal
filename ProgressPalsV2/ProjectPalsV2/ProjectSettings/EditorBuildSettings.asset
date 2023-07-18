@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TaskList.unity
     guid: cd0f48cec82daad459472daafa3ce1c6
+  - enabled: 1
+    path: Assets/Scenes/Login Scene.unity
+    guid: 65327b92a64a8404088f1011cd57b457
+  - enabled: 1
+    path: Assets/Scenes/Register Scene.unity
+    guid: 5cf172f42162c8e47a79c5555aae62e2
   m_configObjects: {}
