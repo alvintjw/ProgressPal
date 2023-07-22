@@ -13,11 +13,5 @@ EditorBuildSettings:
     guid: d5b66ed8a6e4ac045a60fff0128d1680
   - enabled: 1
     path: Assets/Scenes/TaskList.unity
-    guid: cd0f48cec82daad459472daafa3ce1c6
-  - enabled: 1
-    path: Assets/Scenes/Login Scene.unity
-    guid: 65327b92a64a8404088f1011cd57b457
-  - enabled: 1
-    path: Assets/Scenes/Register Scene.unity
-    guid: 5cf172f42162c8e47a79c5555aae62e2
+    guid: 433478d3a8f380d40b7184ba4c893fad
   m_configObjects: {}

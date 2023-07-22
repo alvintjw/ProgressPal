@@ -5,21 +5,23 @@ using UnityEngine.UI;
 
 public class ListManager : MonoBehaviour
 {
-    public Transform content;
+    public Transform mainContent;
     public GameObject addPanel;
     public Button addButton;
     public Button cancelButton;
     public GameObject listItemPrefab;
 
-    public GameObject taskPanel;
+    public TaskPanel taskPanel;
+    public SearchPanel searchPanel;
     
     string filePath;
 
-    private List<ListObject> listObjects = new List<ListObject>();
+    public List<ListObject> listObjects = new List<ListObject>();
 
     private InputField[] addInputFields;
 
     public Button finishButton;
+    public Button groupButton;
 
     private void Start()
     {
@@ -27,9 +29,12 @@ public class ListManager : MonoBehaviour
         addInputFields = addPanel.GetComponentsInChildren<InputField>();
 
         addButton.onClick.AddListener(delegate {CreateListItem(
-            addInputFields[0].text, addInputFields[1].text, addInputFields[2].text);});
+            addInputFields[0].text, addInputFields[1].text,
+            addInputFields[2].text, addInputFields[3].text);});
         
         cancelButton.onClick.AddListener(CloseAddPanel);
+
+        groupButton.onClick.AddListener(OpenSearchPanel);
     }
 
     public void SwitchMode(int mode)
@@ -48,39 +53,55 @@ public class ListManager : MonoBehaviour
 
 
 
-    void CreateListItem(string name, string date, string description)
+    void CreateListItem(string name, string date, string description, string group)
     {
         GameObject item = Instantiate(listItemPrefab);
 
-        item.transform.SetParent(content);
+        item.transform.SetParent(mainContent);
         ListObject itemObject = item.GetComponent<ListObject>();
 
         itemObject.taskPanel = taskPanel;
         itemObject.finishButton = finishButton;
-
-        int index = listObjects.Count;
-        itemObject.SetObjectInfo(name, date, description, index);
-        listObjects.Add(itemObject);
-        ListObject temp = itemObject;
-        Debug.Log(temp);
-        temp.finishButton.onClick.AddListener(delegate {CheckItem(temp);});
-
-        SwitchMode(0);
-    }
-
-    void CloseAddPanel()
-    {
-        SwitchMode(0);
-    }
-
-
-
-    public void CheckItem(ListObject item)
-    {
-        listObjects.Remove(item);
-        Destroy(item.gameObject);
         
+        itemObject.SetObjectInfo(name, date, description, group);
+        listObjects.Add(itemObject);
+
+        addPanel.SetActive(false);
     }
 
+
+/*
+    public void CheckItem(int toDelete)
+    {
+        ListObject temp = listObjects[0];
+        foreach (ListObject x in listObjects)
+        {
+            if (x.index == toDelete)
+            {
+                temp = x;
+            } 
+        }
+        listObjects.Remove(temp);
+        Destroy(temp.gameObject);
+    }
+*/
+    public void CloseAddPanel()
+    {
+        addPanel.SetActive(false);
+    }
+
+    public void OpenSearchPanel()
+    {
+        searchPanel.gameObject.SetActive(true);
+    }
     
+
+    public void SortContent()
+    {
+        listObjects.Sort((a, b) => a.index.CompareTo(b.index));
+        foreach (ListObject x in listObjects)
+        {
+            x.transform.SetAsLastSibling();
+        }
+    }
 }

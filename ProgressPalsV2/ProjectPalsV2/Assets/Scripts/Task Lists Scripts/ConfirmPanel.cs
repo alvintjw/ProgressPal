@@ -5,10 +5,12 @@ using UnityEngine.UI;
 
 public class ConfirmPanel : MonoBehaviour
 {
-    public GameObject taskPanel;
-    public GameObject confirmPanel;
+    public TaskPanel taskPanel;
+    public ConfirmPanel confirmPanel;
     public Button noButton;
     public Button yesButton;
+    public ListObject toDelete;
+    public ListManager listManager;
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +22,19 @@ public class ConfirmPanel : MonoBehaviour
     // Update is called once per frame
     public void CloseConfirmPanel()
     {
-        confirmPanel.SetActive(false);
+        confirmPanel.gameObject.SetActive(false);
     }
 
     public void ConfirmFinish()
     {
-        confirmPanel.SetActive(false);
-        taskPanel.SetActive(false);
+        confirmPanel.gameObject.SetActive(false);
+        taskPanel.gameObject.SetActive(false);
+        listManager.listObjects.Remove(toDelete);
+        Destroy(toDelete.gameObject);
+    }
+
+    public void setObject(ListObject x)
+    {
+        toDelete = x;
     }
 }
