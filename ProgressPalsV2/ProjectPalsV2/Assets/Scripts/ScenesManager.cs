@@ -19,4 +19,14 @@ public class ScenesManager : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+
+    public void LoginPageButton()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void RegisterPageButton()
+    {
+        SceneManager.LoadScene(4);
+    }
 }
