@@ -5,6 +5,7 @@ using UnityEngine;
 public class BackgroundMusic : MonoBehaviour
 {
     private static BackgroundMusic backgroundMusic;
+    //public TimerManager timermanager;
     
     void Awake()
     {
@@ -12,6 +13,7 @@ public class BackgroundMusic : MonoBehaviour
         {
             backgroundMusic = this;
             DontDestroyOnLoad(backgroundMusic);
+            //DontDestroyOnLoad(timermanager);
         } 
         else
         {
