@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Home Scene.unity
-    guid: fc58d4536f79248439b98053efb33681
+    path: Assets/Scenes/Main Scene.unity
+    guid: e96e097bf2cf719419ed73235d07dbbc
   - enabled: 1
     path: Assets/Scenes/Timer Scene.unity
     guid: d5b66ed8a6e4ac045a60fff0128d1680
