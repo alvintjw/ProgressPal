@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ListManager : MonoBehaviour
 {
+    public static ListManager Instance { get; private set; }
+
     public Transform mainContent;
     public GameObject addPanel;
     public Button addButton;
@@ -16,7 +18,9 @@ public class ListManager : MonoBehaviour
     
     string filePath;
 
-    public List<ListObject> listObjects = new List<ListObject>();
+    //public List<ListObject> listObjects = new List<ListObject>();
+    public List<ListObject> listObjects { get; private set; }
+
 
     private InputField[] addInputFields;
 
@@ -25,6 +29,11 @@ public class ListManager : MonoBehaviour
 
     private void Start()
     {
+        if (listObjects == null)
+        {
+            listObjects = new List<ListObject>();
+        }
+        
         filePath = Application.persistentDataPath + "/checklist.txt";
         addInputFields = addPanel.GetComponentsInChildren<InputField>();
 
@@ -35,7 +44,22 @@ public class ListManager : MonoBehaviour
         cancelButton.onClick.AddListener(CloseAddPanel);
 
         groupButton.onClick.AddListener(OpenSearchPanel);
+
+        
     }
+
+    private void Awake()
+    {
+        // Ensure there's only one instance of ListManager in the scene.
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        Instance = this;
+        //DontDestroyOnLoad(this.gameObject);
+    }
+    
 
     public void SwitchMode(int mode)
     {
