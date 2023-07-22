@@ -4387,6 +4387,7 @@ MonoBehaviour:
   listItemPrefab: {fileID: 7456996121709371573, guid: 6b7ca4a3af8488543b27c9e96b2bf8b3, type: 3}
   taskPanel: {fileID: 1179752389}
   searchPanel: {fileID: 1957884240}
+  listObjects: []
   finishButton: {fileID: 1950032337}
   groupButton: {fileID: 2039817282}
 --- !u!4 &376228249
@@ -6349,7 +6350,6 @@ GameObject:
   - component: {fileID: 585410743}
   - component: {fileID: 585410744}
   - component: {fileID: 585410745}
-  - component: {fileID: 585410746}
   m_Layer: 5
   m_Name: Room Canvas
   m_TagString: Untagged
@@ -6486,18 +6486,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventoryToolkit: {fileID: 1112838522}
   inventoryButton: {fileID: 1960796956}
---- !u!114 &585410746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 585410737}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38d22eb89f272c641ae3eab250760ec1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &603118520
 PrefabInstance:
   m_ObjectHideFlags: 0
