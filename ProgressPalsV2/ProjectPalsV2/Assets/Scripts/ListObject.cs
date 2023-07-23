@@ -17,7 +17,7 @@ public class ListObject : MonoBehaviour
 
     public TMP_Text itemName;
     public TMP_Text itemDate;
-    public TMP_Text itemIndex;
+    //public TMP_Text itemIndex;
     private Button button;
     public TaskPanel taskPanel;
     public TMP_Text[] taskPanelInfo;
@@ -34,7 +34,7 @@ public class ListObject : MonoBehaviour
 
         index = count;
         ++ count;
-        itemIndex.text = index.ToString();
+        //itemIndex.text = index.ToString();
         button = GetComponent<Button>();
         button.onClick.AddListener(OpenTaskPanel);
     }
