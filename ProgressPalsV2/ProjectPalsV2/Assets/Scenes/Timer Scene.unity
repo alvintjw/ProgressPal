@@ -2284,7 +2284,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 100
+  m_SortingOrder: 111
   m_TargetDisplay: 0
 --- !u!114 &158389214
 MonoBehaviour:
@@ -5560,7 +5560,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 110
+  m_SortingOrder: 11
   m_TargetDisplay: 0
 --- !u!224 &483626565
 RectTransform:
@@ -6937,7 +6937,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &585410743
 MonoBehaviour:
@@ -14349,7 +14349,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9636a91fd1878934f987e107025dd40a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maincanvas: {fileID: 0}
+  maincanvas: {fileID: 483626564}
 --- !u!1001 &1194186157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17071,8 +17071,8 @@ MonoBehaviour:
     m_NormalColor: {r: 0.427451, g: 0.7843138, b: 0.1764706, a: 1}
     m_HighlightedColor: {r: 0.427451, g: 0.7843138, b: 0.1764706, a: 1}
     m_PressedColor: {r: 0.427451, g: 0.7843138, b: 0.1764706, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_SelectedColor: {r: 0.427451, g: 0.7843138, b: 0.1764706, a: 1}
+    m_DisabledColor: {r: 0.427451, g: 0.7843138, b: 0.1764706, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -17091,8 +17091,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1188187383}
-        m_TargetAssemblyTypeName: MainCanvasToggle, Assembly-CSharp
+      - m_Target: {fileID: 1188187382}
+        m_TargetAssemblyTypeName: TasklistToggle, Assembly-CSharp
         m_MethodName: ToggleCanvases
         m_Mode: 1
         m_Arguments:
