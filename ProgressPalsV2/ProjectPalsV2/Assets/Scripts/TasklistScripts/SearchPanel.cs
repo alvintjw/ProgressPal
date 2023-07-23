@@ -13,7 +13,7 @@ public class SearchPanel : MonoBehaviour
     public Button closeButton;
     public Button taskPanelCloseButton;
     public ListManager listManager;
-    //public String group;
+    
 
     // Start is called before the first frame update
     void Start()

@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ListManager : MonoBehaviour
 {
-    //public static ListManager Instance { get; private set; }
 
     public Transform mainContent;
     public GameObject addPanel;
@@ -19,7 +18,7 @@ public class ListManager : MonoBehaviour
     string filePath;
 
     public List<ListObject> listObjects = new List<ListObject>();
-    //public List<ListObject> listObjects { get; private set; }
+    
 
 
     private InputField[] addInputFields;
@@ -48,19 +47,7 @@ public class ListManager : MonoBehaviour
         
     }
 
-/*
-    private void Awake()
-    {
-        // Ensure there's only one instance of ListManager in the scene.
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-        Instance = this;
-        //DontDestroyOnLoad(this.gameObject);
-    }
-*/
+
 
     public void SwitchMode(int mode)
     {
@@ -95,21 +82,7 @@ public class ListManager : MonoBehaviour
     }
 
 
-/*
-    public void CheckItem(int toDelete)
-    {
-        ListObject temp = listObjects[0];
-        foreach (ListObject x in listObjects)
-        {
-            if (x.index == toDelete)
-            {
-                temp = x;
-            } 
-        }
-        listObjects.Remove(temp);
-        Destroy(temp.gameObject);
-    }
-*/
+
     public void CloseAddPanel()
     {
         addPanel.SetActive(false);
