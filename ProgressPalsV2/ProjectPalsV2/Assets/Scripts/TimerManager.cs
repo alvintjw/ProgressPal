@@ -7,8 +7,8 @@ using UnityEngine.EventSystems;
 public class TimerManager : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] private Image uiFill;
-    [SerializeField] private TextMeshProUGUI uiText;
-    [SerializeField] private Slider durationSlider;
+    [SerializeField] public TextMeshProUGUI uiText;
+    [SerializeField] public Slider durationSlider;
     public Button startButton;
     
     private ShopManager shopManager;
@@ -20,6 +20,7 @@ public class TimerManager : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
+        
         shopManager = FindObjectOfType<ShopManager>();
         if (startButton != null)
         {
@@ -41,7 +42,7 @@ public class TimerManager : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    private void ToggleTimer()
+    public void ToggleTimer()
     {
         if (isTimerRunning)
         {
@@ -53,7 +54,7 @@ public class TimerManager : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    private void StartTimer()
+    public void StartTimer()
     {
         float sliderValue = durationSlider.value;
         int inputDuration = Mathf.RoundToInt(sliderValue * 60);  // Convert slider value to minutes
@@ -88,7 +89,7 @@ public class TimerManager : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    private void ResetUI()
+    public void ResetUI()
     {
         uiText.text = "00:00";
         uiFill.fillAmount = 0f;
@@ -142,7 +143,7 @@ public class TimerManager : MonoBehaviour, IPointerClickHandler
         StopAllCoroutines();
     }
 
-    private void UpdateSliderText(float value)
+    public void UpdateSliderText(float value)
     {
         int totalSeconds = Mathf.RoundToInt(value * 60);
         int minutes = totalSeconds / 60;
